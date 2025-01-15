@@ -59,7 +59,8 @@ public class Krankenhausmanagement {
         Medikament medikament = findMedikamentByName(name);
         if (medikament != null) {
             System.out.print("Neuer Preis: ");
-            medikament = new Medikament(medikament.getName(), scanner.nextDouble(), medikament.getKrankheit());
+            double preis = scanner.nextDouble();
+            medikament = new Medikament(medikament.getName(), preis, medikament.getKrankheit());
             scanner.nextLine();  // consume newline
             System.out.println("Medikament bearbeitet.");
         } else {
