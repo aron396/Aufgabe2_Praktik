@@ -3,10 +3,10 @@ package model;
 public class Medikament {
 
     private String name;
-    private String preis;
+    private double preis;
     private String krankheit;
 
-    public Medikament(String name, String preis, String krankheit) {
+    public Medikament(String name, double preis, String krankheit) {
         this.name = name;
         this.preis = preis;
         this.krankheit = krankheit;
@@ -20,11 +20,11 @@ public class Medikament {
         this.name = name;
     }
 
-    public String getPreis() {
+    public double getPreis() {
         return preis;
     }
 
-    public void setPreis(String preis) {
+    public void setPreis(double preis) {
         this.preis = preis;
     }
 
