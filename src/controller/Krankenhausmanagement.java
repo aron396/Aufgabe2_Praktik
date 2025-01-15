@@ -144,6 +144,17 @@ public class Krankenhausmanagement {
         return null;
     }
 
+    private static void filterPatientenByDiagnose() {
+        System.out.print("Diagnose zum Filtern: ");
+        String diagnose = scanner.nextLine();
+        System.out.println("Patienten aus " + diagnose + ":");
+        for (Patient patient : patientList) {
+            if (patient.getDiagnose().equalsIgnoreCase(diagnose)) {
+                System.out.println(patient);
+            }
+        }
+    }
+
 
 
 
