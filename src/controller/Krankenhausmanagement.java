@@ -155,6 +155,20 @@ public class Krankenhausmanagement {
         }
     }
 
+    private static void displayPatientenByMedikamentKrankheit() {
+        System.out.print("Krankheit des Medikamentes: ");
+        String krankheit = scanner.nextLine();
+        System.out.println("Patienten, die Medikamente fur " + krankheit + " gekauft haben:");
+        for (Patient patient : patientList) {
+            for (Medikament medikament : patient.getMedikamente()) {
+                if (medikament.getKrankheit().equalsIgnoreCase(krankheit)) {
+                    System.out.println(patient);
+                    break;
+                }
+            }
+        }
+    }
+
 
 
 
