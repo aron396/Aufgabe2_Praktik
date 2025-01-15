@@ -7,11 +7,14 @@ import java.util.*;
 
 public class Krankenhausmanagement {
 
-    private static List<Medikament> medikamentList = new ArrayList<>();
-    private static List<Patient> patientList = new ArrayList<>();
-    private static Scanner scanner = new Scanner(System.in);
+    public
+ static List<Medikament> medikamentList = new ArrayList<>();
+    public
+ static List<Patient> patientList = new ArrayList<>();
+    public
+ static Scanner scanner = new Scanner(System.in);
 
-    private static void showMenu() {
+    public static void showMenu() {
         System.out.println("Wählen Sie eine Option:");
         System.out.println("1. Medikamente hinzufügen");
         System.out.println("2. Alle Medikamente anzeigen");
@@ -27,7 +30,7 @@ public class Krankenhausmanagement {
         System.out.println("12. Beenden");
     }
 
-    private static void addMedikament() {
+    public static void addMedikament() {
         System.out.print("Medikamentname: ");
         String name = scanner.nextLine();
         System.out.print("Preis: ");
@@ -41,14 +44,14 @@ public class Krankenhausmanagement {
     }
 
 
-    private static void displayMedikament() {
+    public static void displayMedikament() {
         System.out.println("Alle Medikamente:");
         for (Medikament medikament : medikamentList) {
             System.out.println(medikament);
         }
     }
 
-    private static void editMedikament() {
+    public static void editMedikament() {
         System.out.print("Medikamentname zum Bearbeiten: ");
         String name = scanner.nextLine();
         Medikament medikament = findMedikamentByName(name);
@@ -62,7 +65,7 @@ public class Krankenhausmanagement {
         }
     }
 
-    private static Medikament findMedikamentByName(String name) {
+    public static Medikament findMedikamentByName(String name) {
         for (Medikament medikament : medikamentList) {
             if (medikament.getName().equalsIgnoreCase(name)) {
                 return medikament;
@@ -71,7 +74,7 @@ public class Krankenhausmanagement {
         return null;
     }
 
-    private static void deleteMedikament() {
+    public static void deleteMedikament() {
         System.out.print("Medikamentname zum Löschen: ");
         String name = scanner.nextLine();
         Medikament medikament = findMedikamentByName(name);
@@ -83,7 +86,7 @@ public class Krankenhausmanagement {
         }
     }
 
-    private static void addPatient() {
+    public static void addPatient() {
         System.out.print("Patient-ID: ");
         int id = scanner.nextInt();
         scanner.nextLine();  // consume newline
@@ -98,14 +101,14 @@ public class Krankenhausmanagement {
         System.out.println("Charakter hinzugefügt.");
     }
 
-    private static void displayPatients() {
+    public static void displayPatients() {
         System.out.println("Alle Charaktere:");
         for (Patient Patient : patientList) {
             System.out.println(Patient);
         }
     }
 
-    private static void editPatient() {
+    public static void editPatient() {
         System.out.print("Patient-ID zum Bearbeiten: ");
         int id = scanner.nextInt();
         scanner.nextLine();  // consume newline
@@ -120,7 +123,7 @@ public class Krankenhausmanagement {
         }
     }
 
-    private static void deletePatient() {
+    public static void deletePatient() {
         System.out.print("Patient-ID zum Löschen: ");
         int id = scanner.nextInt();
         scanner.nextLine();  // consume newline
@@ -133,7 +136,7 @@ public class Krankenhausmanagement {
         }
     }
 
-    private static Patient findPatientById(int id) {
+    public static Patient findPatientById(int id) {
         for (Patient patient : patientList) {
             if (patient.getId() == id) {
                 return patient;
@@ -142,7 +145,7 @@ public class Krankenhausmanagement {
         return null;
     }
 
-    private static void filterPatientenByDiagnose() {
+    public static void filterPatientenByDiagnose() {
         System.out.print("Diagnose zum Filtern: ");
         String diagnose = scanner.nextLine();
         System.out.println("Patienten aus " + diagnose + ":");
@@ -153,7 +156,7 @@ public class Krankenhausmanagement {
         }
     }
 
-    private static void displayPatientenByMedikamentKrankheit() {
+    public static void displayPatientenByMedikamentKrankheit() {
         System.out.print("Krankheit des Medikamentes: ");
         String krankheit = scanner.nextLine();
         System.out.println("Patienten, die Medikamente fur " + krankheit + " gekauft haben:");
@@ -167,7 +170,7 @@ public class Krankenhausmanagement {
         }
     }
 
-    private static void sortPatientMedikamenteByPreis() {
+    public static void sortPatientMedikamenteByPreis() {
         System.out.print("Patient-ID für Medikamente sortieren: ");
         int id = scanner.nextInt();
         scanner.nextLine();  // consume newline
