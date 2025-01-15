@@ -47,7 +47,9 @@ public class Krankenhausmanagement {
     public static void displayMedikament() {
         System.out.println("Alle Medikamente:");
         for (Medikament medikament : medikamentList) {
-            System.out.println(medikament);
+            System.out.println(medikament.getName());
+            System.out.println(medikament.getKrankheit());
+            System.out.println(medikament.getPreis());
         }
     }
 
