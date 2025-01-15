@@ -1,6 +1,17 @@
 package controller;
 
+import model.Medikament;
+import model.Patient;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Krankenhausmanagement {
+
+    private static List<Medikament> medikamentList = new ArrayList<>();
+    private static List<Patient> patients = new ArrayList<>();
+    private static Scanner scanner = new Scanner(System.in);
 
     private static void showMenu() {
         System.out.println("Wählen Sie eine Option:");
@@ -17,6 +28,20 @@ public class Krankenhausmanagement {
         System.out.println("11. Medikamente eines Patientes nach Preis sortieren");
         System.out.println("12. Beenden");
     }
+
+    private static void addMedikament() {
+        System.out.print("Medikamentname: ");
+        String name = scanner.nextLine();
+        System.out.print("Preis: ");
+        double preis = scanner.nextDouble();
+        scanner.nextLine();  // consume newline
+        System.out.print("Krankheit: ");
+        String krankheit = scanner.nextLine();
+
+        medikamentList.add(new Medikament(name, preis, krankheit));
+        System.out.println("Produkt hinzugefügt.");
+    }
+
 
 
 }
