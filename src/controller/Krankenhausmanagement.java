@@ -3,9 +3,7 @@ package controller;
 import model.Medikament;
 import model.Patient;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Krankenhausmanagement {
 
@@ -168,6 +166,32 @@ public class Krankenhausmanagement {
             }
         }
     }
+
+    private static void sortPatientMedikamenteByPreis() {
+        System.out.print("Patient-ID für Medikamente sortieren: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();  // consume newline
+        Patient patient = findPatientById(id);
+        if (patient != null) {
+            System.out.print("Sortieren aufsteigend (1) oder absteigend (2): ");
+            int sortOrder = scanner.nextInt();
+            scanner.nextLine();  // consume newline
+
+            List<Medikament> medikaments = patient.getMedikamente();
+            medikaments.sort(Comparator.comparingDouble(Medikament::getPreis));
+            if (sortOrder == 2) {
+                Collections.reverse(medikaments);
+            }
+
+            System.out.println("Medikamente des Patienten sortiert:");
+            for (Medikament medikament : medikaments) {
+                System.out.println(medikament);
+            }
+        } else {
+            System.out.println("Charakter nicht gefunden.");
+        }
+    }
+
 
 
 
