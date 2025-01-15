@@ -50,5 +50,28 @@ public class Krankenhausmanagement {
         }
     }
 
+    private static void editMedikament() {
+        System.out.print("Medikamentname zum Bearbeiten: ");
+        String name = scanner.nextLine();
+        Medikament medikament = findMedikamentByName(name);
+        if (medikament != null) {
+            System.out.print("Neuer Preis: ");
+            medikament = new Medikament(medikament.getName(), scanner.nextDouble(), medikament.getKrankheit());
+            scanner.nextLine();  // consume newline
+            System.out.println("Medikament bearbeitet.");
+        } else {
+            System.out.println("Produkt nicht gefunden.");
+        }
+    }
+
+    private static Medikament findMedikamentByName(String name) {
+        for (Medikament medikament : medikamentList) {
+            if (medikament.getName().equalsIgnoreCase(name)) {
+                return medikament;
+            }
+        }
+        return null;
+    }
+
 
 }
