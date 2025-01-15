@@ -73,5 +73,17 @@ public class Krankenhausmanagement {
         return null;
     }
 
+    private static void deleteMedikament() {
+        System.out.print("Medikamentname zum Löschen: ");
+        String name = scanner.nextLine();
+        Medikament medikament = findMedikamentByName(name);
+        if (medikament != null) {
+            medikamentList.remove(medikament);
+            System.out.println("Medikament gelöscht.");
+        } else {
+            System.out.println("Medikament nicht gefunden.");
+        }
+    }
+
 
 }
