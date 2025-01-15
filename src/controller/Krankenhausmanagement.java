@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class Krankenhausmanagement {
 
     private static List<Medikament> medikamentList = new ArrayList<>();
-    private static List<Patient> patients = new ArrayList<>();
+    private static List<Patient> patientList = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
     private static void showMenu() {
@@ -84,6 +84,67 @@ public class Krankenhausmanagement {
             System.out.println("Medikament nicht gefunden.");
         }
     }
+
+    private static void addPatient() {
+        System.out.print("Patient-ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();  // consume newline
+        System.out.print("Charaktername: ");
+        String name = scanner.nextLine();
+        System.out.print("Alter: ");
+        int alter = scanner.nextInt();
+        System.out.print("Diagnose: ");
+        String diagnose = scanner.nextLine();
+
+        patientList.add(new Patient(id, name, alter, diagnose, new ArrayList<>()));
+        System.out.println("Charakter hinzugefügt.");
+    }
+
+    private static void displayPatients() {
+        System.out.println("Alle Charaktere:");
+        for (Patient Patient : patientList) {
+            System.out.println(Patient);
+        }
+    }
+
+    private static void editPatient() {
+        System.out.print("Patient-ID zum Bearbeiten: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();  // consume newline
+        Patient patient = findPatientById(id);
+        if (patient != null) {
+            System.out.print("Neuer Name: ");
+            String name = scanner.nextLine();
+            patient = new Patient(patient.getId(), name, patient.getAlter(), patient.getDiagnose(), patient.getMedikamente());
+            System.out.println("Patient bearbeitet.");
+        } else {
+            System.out.println("Patient nicht gefunden.");
+        }
+    }
+
+    private static void deletePatient() {
+        System.out.print("Patient-ID zum Löschen: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();  // consume newline
+        Patient patient = findPatientById(id);
+        if (patient != null) {
+            patientList.remove(patient);
+            System.out.println("Patient gelöscht.");
+        } else {
+            System.out.println("Patient nicht gefunden.");
+        }
+    }
+
+    private static Patient findPatientById(int id) {
+        for (Patient patient : patientList) {
+            if (patient.getId() == id) {
+                return patient;
+            }
+        }
+        return null;
+    }
+
+
 
 
 }
